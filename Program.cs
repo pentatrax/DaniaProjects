@@ -24,17 +24,19 @@ namespace DaniaProjects
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Type a number:");
                 input1 = Console.ReadLine();
-                Console.Beep();
+                Console.Beep(5000, 500);
                 Console.WriteLine("Type a number to add:");
                 input2 = Console.ReadLine();
-                Console.Beep();
+                Console.Beep(2500, 500);
                 if (input1 != "" && input2 != "")
                 {
                     num1 = Convert.ToInt32(input1);
                     num2 = Convert.ToInt32(input2);
-                    sum = num1 + num2;
                 }
-                Console.WriteLine("The sum of your numbers is: " + sum);
+                sum = num1 + num2;
+                Console.Write("The sum of your numbers is: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(sum);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Press ESC to close or ENTER to go again");
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);

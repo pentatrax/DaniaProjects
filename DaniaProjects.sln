@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaniaProjects", "DaniaProjects.csproj", "{098F400A-C28D-450F-BA2C-DCD36D5F61AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumInputs", "SumInputs.csproj", "{098F400A-C28D-450F-BA2C-DCD36D5F61AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Øvelse2", "..\Øvelse2\Øvelse2.csproj", "{533466A6-7250-4A30-8CFB-E2080CF5600A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{098F400A-C28D-450F-BA2C-DCD36D5F61AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{098F400A-C28D-450F-BA2C-DCD36D5F61AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{098F400A-C28D-450F-BA2C-DCD36D5F61AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533466A6-7250-4A30-8CFB-E2080CF5600A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533466A6-7250-4A30-8CFB-E2080CF5600A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533466A6-7250-4A30-8CFB-E2080CF5600A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533466A6-7250-4A30-8CFB-E2080CF5600A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

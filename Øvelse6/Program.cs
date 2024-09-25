@@ -8,18 +8,16 @@ namespace Øvelse6
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void run(Dictionary<string, string> users)
         {
             int age = 0;
-            Dictionary<string, string> users = new Dictionary<string, string>();
-            users.Add("admin", "admin");
             string passwd = "";
             string inputPasswd = "";
             string inputUsrName = "";
             bool accessGranted = false;
             string denialMessage = "";
             string language = "english";
-        do {
+
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("How old are you?: ");
@@ -111,6 +109,14 @@ namespace Øvelse6
             }
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Press ESC to Quit.");
+        }
+        static void Main(string[] args)
+        {
+            int age = 0;
+            Dictionary<string, string> users = new Dictionary<string, string>();
+            users.Add("admin", "admin");
+        do {
+            run(users);
         } while (Console.ReadKey(true).Key != ConsoleKey.Escape) ;
         }
     }

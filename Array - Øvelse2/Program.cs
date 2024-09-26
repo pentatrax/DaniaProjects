@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Array___Øvelse2
@@ -173,8 +174,11 @@ namespace Array___Øvelse2
                 "ABCDEFGH",
                 "87654321"
             };
+            Regex singleInstructCheck = new Regex("^([A-H][1-8])+");
+
+
             error = "";
-            if (instruction.Length < 3)
+            if (singleInstructCheck.IsMatch(instruction))
             {
                 cords[0] = (byte)boardCords[0].IndexOf(instruction[0]);
                 cords[1] = (byte)boardCords[1].IndexOf(instruction[1]);
@@ -188,19 +192,25 @@ namespace Array___Øvelse2
         }
         static byte[,] TryMovePiece(byte[,] board, string instructions, out string error)
         {
+            Regex inputCheckPattern = new Regex("^([A-H][1-8]-[A-H][1-8])+");
             bool errorHappened = false;
             byte[,] temp = board;
             error = "";
             string[] arr_instructions = instructions.ToUpper().Split('-');
-            byte[] from = InstructionToCordinates(arr_instructions[0], out error);
-            byte[] to = InstructionToCordinates(arr_instructions[1], out error);
+            if (inputCheckPattern.IsMatch(instructions.ToUpper()) && instructions.Length <= 5)
+            {
+                byte[] from = InstructionToCordinates(arr_instructions[0], out error);
+                byte[] to = InstructionToCordinates(arr_instructions[1], out error);
 
-            byte moovingPiece = board[from[1], from[0]];
-            byte fieldToMove = board[to[1], to[0]];
+                byte moovingPiece = board[from[1], from[0]];
+                byte fieldToMove = board[to[1], to[0]];
 
-            temp[to[1], to[0]] = moovingPiece;
-            temp[from[1], from[0]] = 0;
-
+                temp[to[1], to[0]] = moovingPiece;
+                temp[from[1], from[0]] = 0;
+            } else
+            {
+                error = "Input did not match instruction example!";
+            }
             if (error != "")
             {
                 errorHappened = true;
@@ -230,6 +240,7 @@ namespace Array___Øvelse2
                 switch (playerInput.ToLower())
                 {
                     case "play":
+                        errorMsg = "";
                         board = PopulateBoard(board);
                         inGame = true;
                         break;
@@ -245,7 +256,7 @@ namespace Array___Øvelse2
                 {
                     Console.Clear();
                     DrawBoard(board);
-                    if (errorMsg != "") Log("\n"+errorMsg+"\n", ConsoleColor.Red);
+                    if (errorMsg != "") Log(errorMsg+"\n", ConsoleColor.Red);
                     Log("You can write Restart or Quit to do each respectively.\n", ConsoleColor.Yellow);
                     Log("What's your move [A2-B3]?: ", ConsoleColor.Yellow);
                     playerInput = Console.ReadLine();
@@ -254,9 +265,11 @@ namespace Array___Øvelse2
                         switch (playerInput.ToLower())
                         {
                             case "restart":
+                                errorMsg = "";
                                 board = PopulateBoard(board);
                                 break;
                             case "quit":
+                                errorMsg = "";
                                 inGame = false;
                                 break;
                             default:

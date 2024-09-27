@@ -81,12 +81,12 @@ namespace Basisprogrammering___Array_og_Strings
                 if (guessedLetters.IndexOf(word.ToLower()[i]) != -1)
                 {
                     Log(" ");
-                    Log(" ", ConsoleColor.Green, ConsoleColor.Black, true);
+                    Log(word.ToUpper()[i], ConsoleColor.Green, ConsoleColor.Black, true);
                 }
                 else
                 {
                     Log(" ");
-                    Log(word.ToUpper()[i], ConsoleColor.White, ConsoleColor.White, true);
+                    Log(" ", ConsoleColor.White, ConsoleColor.White, true);
                 }
             }
         }
